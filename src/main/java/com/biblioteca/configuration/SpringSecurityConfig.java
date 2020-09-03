@@ -36,28 +36,24 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/").permitAll()
-		.anyRequest().authenticated()
+		http.authorizeRequests().antMatchers("/vprestamo","/vprestamo-detalle","/vprestamo-all").permitAll()		
 		
-		/*
-		 * .and()
-		    .formLogin()
-		        .successHandler(successHandler)
-		        .loginPage("/login")
-		    .permitAll()
-		.and()
-		.logout().permitAll()
-		.and()
-		.exceptionHandling().accessDeniedPage("/error_403")
-		*
-		*/
-		
+		 .anyRequest().authenticated()		
 		.and()
 		.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtService))
 		.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtService))
 		.csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
+		
+		/*http.authorizeRequests().antMatchers("/").permitAll()
+		.antMatchers("/vprestamo/**").access("hasIpAddress('10.0.113.49')");*/
+		
+		/*http
+	    .authorizeRequests()
+	    .antMatchers("/vprestamo**").access(
+	            "hasIpAddress('10.0.113.0/24') or hasIpAddress('127.0.0.1')");*/
+	    //.antMatchers("/vprestamo/**").hasIpAddress("127.0.0.1");
+		
 	}
 
 	@Autowired

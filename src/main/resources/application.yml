@@ -1,9 +1,11 @@
+#server:
+#  port : 8081
 spring:
   datasource:
-    url: jdbc:oracle:thin:@10.0.6.52:1521:aleph23
-    username: CSM50
-    password: CSM50
-    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:mysql://10.0.6.52/koha_library?useSSL=false
+    username: koha_library
+    password: vFFFv8EsxIN7GZ9E
+    driverClassName: com.mysql.jdbc.Driver
   jpa:
     show-sql: true   
     hibernate:
@@ -12,7 +14,7 @@ spring:
       #physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.Oracle10gDialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         #format_sql: true
         #dialect: org.hibernate.dialect.SQLServer2012Dialect
   jmx:

@@ -47,11 +47,16 @@
 		<!-- Ejecutar manualmente en maven -->
 		<!-- >mvn install:install-file -Dfile=C:\Users\jbasurco\.m2\repository\oracle\ojdbc7.jar -DgroupId=com.oracle -DartifactId=oracle-driver-ojdbc7 -Dpackaging=jar  -Dversion=7 -->
 		
-		<dependency>
+		<!-- <dependency>
 	        <groupId>com.oracle</groupId>
 	        <artifactId>oracle-driver-ojdbc7</artifactId>
 	        <version>7</version>
-	    </dependency>
+	    </dependency>-->
+	    <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -68,6 +73,11 @@
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
 			<version>0.9.0</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.json</groupId>
+		   <artifactId>json</artifactId>
+		   <version>20080701</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
